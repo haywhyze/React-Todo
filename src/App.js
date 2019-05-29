@@ -28,13 +28,28 @@ class App extends React.Component {
       todoName: '',
     }
   }
+  
+  handleChange = (event) => {
+    this.setState({
+      todoName: event.target.value,
+    })
+  }
+
+  
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList todoList={intitialTodo} />
-        <TodoForm />
+        <TodoList 
+          todoList={intitialTodo} 
+        />
+        <TodoForm 
+          todoName={this.state.todoName} 
+          handleChange={this.handleChange}
+          handleClear={this.handleClear}
+          handleAdd={this.handleAdd}
+        />
       </div>
     );
   }
