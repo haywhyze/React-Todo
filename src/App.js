@@ -35,14 +35,29 @@ class App extends React.Component {
     })
   }
 
-  
+  handleAdd = (event) => {
+    event.preventDefault();
+    if (!this.state.todoName) return
+    const newTodo = {
+      id: Date.now(),
+      task: this.state.todoName,
+      completed: false,
+    }
+
+    const newTodoList = this.state.todoList.concat(newTodo);
+
+    this.setState({
+      todoList: newTodoList,
+      todoName: '',
+    })
+  }
 
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList 
-          todoList={intitialTodo} 
+          todoList={this.state.todoList} 
         />
         <TodoForm 
           todoName={this.state.todoName} 
