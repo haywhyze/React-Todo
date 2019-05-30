@@ -4,12 +4,21 @@ import React from 'react';
 import './Todo.css';
 import Todo from './Todo';
 
-export default ({ todoList }) => (
+export default ({ todoList, handleComplete }) => (
   <div>
     <ul>
       {
         todoList.map(todo => (
-          <li key={todo.id}><Todo todoName={todo.task} /></li>
+          <li 
+            onClick={handleComplete} 
+            id={todo.id} 
+            key={todo.id}
+            className={todo.completed ? 'completed' : ''}
+          >
+            <Todo 
+              todoName={todo.task} 
+            />
+          </li>
         ))
       }
     </ul>
