@@ -6,14 +6,14 @@ import Todo from './Todo';
 
 export default ({ todoList, handleComplete }) => (
   <div>
-    <ul>
+    <ul className="todoContainer">
       {
         todoList.map(todo => (
           <li 
             onClick={handleComplete} 
             id={todo.id} 
             key={todo.id}
-            className={todo.completed ? 'completed' : ''}
+            className={todo.completed ? 'todoItem completed' : 'todoItem'}
           >
             <Todo 
               todoName={todo.task} 
