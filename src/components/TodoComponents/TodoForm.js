@@ -2,17 +2,24 @@ import React from 'react';
 import './Todo.css';
 
 export default ({ todoName, handleChange, handleAdd, handleClear }) => (
-  <form>
+  <form className='todoForm'>
     <input
       type='text'
       onChange={handleChange}
       value={todoName}
+      className='todoInput'
+      placeholder='..enter your todo here'
     />
-    <input
+    <button
       type='submit'
-      value='Add Todo'
       onClick={handleAdd}
-    />
-    <button onClick={handleClear}>Clear Completed</button>
+      className='addTodo'
+    >Add Todo</button>
+    <button 
+      onClick={handleClear}
+      className='clearCompleted'
+    >
+      Clear Completed
+    </button>
   </form>
 );
